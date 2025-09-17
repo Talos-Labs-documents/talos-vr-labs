@@ -1,0 +1,47 @@
+name: Unity Android Build (Quest)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'unity-starter/**'
+      - '.github/workflows/unity-android.yml'
+
+env:
+  UNITY_VERSION: 2022.3.40f1
+  PROJECT_PATH: unity-starter
+  BUILD_TARGET: Android
+  ANDROID_APP_OUTPUT: build-android
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-${{ env.UNITY_VERSION }}-${{ hashFiles(format('{0}/Assets/**', env.PROJECT_PATH)) }}
+          restore-keys: |
+            Library-${{ env.UNITY_VERSION }}-
+
+      - name: Unity - Builder (Android)
+        uses: game-ci/unity-builder@v4
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: ${{ env.BUILD_TARGET }}
+          androidAppBundle: false
+          buildName: TALOSVR
+          buildsPath: ${{ env.ANDROID_APP_OUTPUT }}
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: TALOSVR-Android-APK
+          path: ${{ env.ANDROID_APP_OUTPUT }}/**/*.apk

@@ -1,0 +1,29 @@
+{
+  "labels": [
+    {
+      "name": "feat",
+      "color": "0E8A16",
+      "description": "New feature"
+    },
+    {
+      "name": "bug",
+      "color": "D73A4A",
+      "description": "Bug / defect"
+    },
+    {
+      "name": "docs",
+      "color": "0075CA",
+      "description": "Documentation"
+    },
+    {
+      "name": "chore",
+      "color": "C5DEF5",
+      "description": "Build/infra/cleanup"
+    },
+    {
+      "name": "good first issue",
+      "color": "7057ff",
+      "description": "Starter task"
+    }
+  ]
+}

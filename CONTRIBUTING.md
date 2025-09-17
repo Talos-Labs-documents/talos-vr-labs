@@ -1,30 +1,20 @@
-# Contributing
+# Contributing to TALOS VR Labs
 
-Thanks for considering a contribution!
+Thanks for helping push open VR forward.
 
 ## Workflow
-1. Create an issue describing the change.
-2. Create a branch: `feat/short-name` or `fix/short-name`.
-3. Use **Conventional Commits** in messages (e.g., `feat: add teleport locomotion`).
-4. Open a PR targeting `dev`. The repo maintainer will merge to `main` on release.
+- Work off `dev`. Use feature branches (`feat/<name>`).
+- Open an issue describing your change.
+- Use **Conventional Commits** in messages.
+- Keep PRs small; include test/notes for target device(s).
 
-## Coding/Asset Guidelines
-- Prefer **OpenXR** and cross‑vendor SDKs.
-- Keep binary assets out of Git history; use **Git LFS**.
-- Include source files for generated assets when possible.
-- Document platform requirements (Quest/PCVR/SteamVR) in the README.
-
-## Commit Types
-- `feat:` new feature
-- `fix:` bug fix
-- `perf:` performance improvement
-- `refactor:` code changes without behavior change
-- `docs:` documentation
-- `test:` tests
-- `chore:` tooling/infra
+## Code/Asset Guidelines
+- Prefer **OpenXR** features for cross‑vendor compatibility.
+- Use **Git LFS** for large binaries; include source files when possible.
+- Unity: follow folder layout under `Assets/` (`Scenes`, `Scripts`, `Materials`, `Prefabs`).  
+- Unreal: keep modules minimal; avoid committing Derived Data.
 
 ## PR Checklist
-- [ ] Tested on target(s): Quest, PCVR, SteamVR
+- [ ] Builds on Quest or PCVR as applicable
 - [ ] No large files without LFS
-- [ ] README updated
-- [ ] CI green (if enabled)
+- [ ] Updated README/docs as needed
