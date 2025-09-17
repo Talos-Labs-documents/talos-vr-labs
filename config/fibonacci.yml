@@ -1,0 +1,39 @@
+fibonacciMode:
+  enabled: true
+  rotation:
+    targetRPM: 37
+    goldenLockCandidates: [34, 55]
+    phaseCueDegrees: [34, 55, 89, 144, 233]
+    rampSeconds: [1, 2, 3, 5, 8]
+    microDither:
+      amplitudeRPM: 0.618
+      periodSeconds: 8
+  visuals:
+    phyllotaxis:
+      enabled: true
+      divergenceDeg: 137.507764
+      scale: 0.12
+    frameGates: [34, 55, 89]
+    goldenSpiralOverlay:
+      enabled: true
+      opacityPulseBeats: [1, 1, 2, 3, 5]
+  audio:
+    baseHz: 144
+    ratios: [0.618, 1.0, 1.618]
+    beatPattern: [1, 1, 2, 3, 5]
+    safeMaxdB: 75
+  breathwork:
+    pattern: [3, 5, 8]
+    showGuide: true
+  session:
+    blocksMinutes: [1, 2, 3, 5, 8]
+  haptics:
+    microPulse:
+      intervalSeconds: 0.618
+      restSeconds: 1.0
+      amplitude: 0.15
+  sensors:
+    markerLayout: "phyllotaxis"
+    sampleBurstsSeconds: [1, 2, 3, 5]
+  control:
+    backoffSeconds: [1, 2, 3, 5, 8]

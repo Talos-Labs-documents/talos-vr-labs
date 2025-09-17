@@ -1,0 +1,40 @@
+name: Proof Pack — Hash & Artifact
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  proofpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set run folder (latest)
+        id: runfolder
+        run: |
+          LAST_RAW=$(ls -dt runs/*/RAW 2>/dev/null | head -n 1 || true)
+          echo "last_raw=${LAST_RAW}" >> $GITHUB_OUTPUT
+
+      - name: Install zip (if needed)
+        run: sudo apt-get update && sudo apt-get install -y zip
+
+      - name: Publish hashes (if RAW present)
+        if: steps.runfolder.outputs.last_raw != ''
+        run: |
+          chmod +x scripts/publish_hash.sh
+          scripts/publish_hash.sh "${{ steps.runfolder.outputs.last_raw }}"
+      
+      - name: Upload artifact (bundle + hashes)
+        if: steps.runfolder.outputs.last_raw != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: proofpack-${{ github.sha }}
+          path: |
+            runs/*/TIMESTAMP.txt
+            runs/*/HASHES.txt
+            runs/*/*.zip
+            runs/*/BUNDLE_SHA256.txt
+          if-no-files-found: ignore
