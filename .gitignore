@@ -1,0 +1,20 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Build artifacts
+[Bb]uild/
+[Bb]uilds/
+bin/
+obj/
+
+# Logs
+*.log
+
+# Python (tools/scripts)
+__pycache__/
+*.pyc

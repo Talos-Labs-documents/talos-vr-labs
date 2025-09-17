@@ -1,0 +1,16 @@
+name: Unity CI (stub)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'unity-starter/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Use game-ci for real builds; license activation required.
+      - name: Placeholder
+        run: echo "See README for enabling game-ci/unity-builder."

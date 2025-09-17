@@ -1,0 +1,19 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.3",
+  "Category": "",
+  "Description": "MyVRProject starter using OpenXR",
+  "Modules": [
+    {
+      "Name": "MyVRProject",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "OpenXR",
+      "Enabled": true
+    }
+  ]
+}
