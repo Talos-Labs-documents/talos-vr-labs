@@ -1,72 +1,78 @@
-# TALOS VR Rig — Full Stack (Software + Hardware)
+# TALOS Labs — 6DOF Immersion Starter (MVP)
 
-This repo is a **one-stop kit**: code + firmware + hardware + docs to build a rotation-capable VR rig with a **motor safety governor** and a **real-time bridge** to Unreal/Unity.
-
----
-
-## 🚀 Quickstart
-
-**Clone**
-```bash
-git clone https://github.com/<you>/talos-vr-rig.git
-cd talos-vr-rig
-```
-
-**Setup**
-- Windows: `orchestration/scripts/setup_windows.ps1`
-- macOS/Linux: `orchestration/scripts/setup_unix.sh`
-
-**Launch Unreal**
-```bash
-"<UE_Editor_Path>/UnrealEditor" ./software/unreal/TalosRig/TalosRig.uproject
-```
-
-**Start Bridge**
-```bash
-docker compose -f orchestration/docker/compose.yml up
-```
-
-**Play** in Unreal → live motor telemetry + safety limits enforced.
+**Ignition Node: 0 → 1**  
+This repository contains the starter kit for building and testing a modular, low-RPM, six-degrees-of-freedom (6DOF) immersion platform.  
+It combines **rotational hardware + VR software + safety protocols + reproducible methods**.  
+The goal: enable anyone to replicate, log, and contribute to a global open-science experiment.  
 
 ---
 
-## 📂 Repo Structure
+## ⚡ Quickstart
 
-```
-software/        # Unreal + Unity projects + bridge
-firmware/        # Motor controller (Arduino/STM32)
-hardware/        # CAD, schematics, BOM, safety docs
-orchestration/   # Docker + setup scripts
-docs/            # MkDocs documentation site
-.github/         # CI/CD workflows
-```
+1. **Download release:** [talos-mvp.zip](./releases)  
+   - Contains Unity + Unreal demo scenes, wiring diagrams, hardware specs, consent template, and session log CSV.  
+2. **Assemble hardware:** follow `HARDWARE.md` (low-RPM motor, top clutch, emergency stop wiring).  
+3. **Run demo:** open prefab scene in Unity or Unreal → sync with motor controller → test spin (max 2 min first run).  
+4. **Log session:** use `session_log.csv` template, record baseline + exposure + post metrics.  
+5. **Submit replication:** SHA256 your `session_log.csv` + ZIP, share via pull request or replicator portal.  
 
 ---
 
-## 🛡 Safety
+## 🛡 Safety First
 
-- Physical **E-stop** switch (required).
-- **MCU watchdog** → motor stops if no new command within 300ms.
-- **RPM ceiling** enforced in firmware (default 40 RPM).
-- **Seatbelt/harness** spec in `/hardware/safety`.
+- **Emergency Stop:** Big red E-STOP wired directly to motor controller. Must be tested before every session.  
+- **Medical exclusions:** Do **not** participate if you have seizures, vestibular disorders, heart conditions, are pregnant, or have recent head trauma.  
+- **Session limits:** Start with **2 min max exposure**. Increase only gradually across sessions if no adverse effects.  
+- **Never run solo:** A session buddy must always be present with access to the E-STOP.  
+- **Adverse events:** Stop immediately on nausea, dizziness, double vision, chest pain, confusion, or loss of consciousness. Seek medical attention.  
 
----
-
-## 📦 BOM (starter)
-
-See [`hardware/bom/bom.csv`](hardware/bom/bom.csv).
+See [`SAFETY.md`](./SAFETY.md) for full checklist + printable consent form.  
 
 ---
 
-## 📚 Documentation
+## 🧪 Methods
 
-- [Build guide](./docs) (autobuilt to GitHub Pages via CI)
-- [Firmware notes](./firmware/motor-controller/README.md)
-- [Bridge API](./software/bridge/README.md)
+We are treating this as **open community science**.  
+Follow [`METHODS.md`](./METHODS.md) for a reproducible protocol:  
+
+- **Baseline (pre):** HR, HRV, SpO₂, BP, balance test, subjective mood/perception.  
+- **Session (during):** Log RPM, exposure duration, continuous HR/HRV if possible.  
+- **Post (after):** Repeat baseline + subjective scales (nausea 0-10, dissociation 0-10, mood, clarity).  
+- **Data format:** see `session_log.csv` for column schema.  
+
+Always publish raw logs + SHA256 fingerprint. This preserves provenance and credibility.  
 
 ---
 
-## 📜 License
+## 🤝 Contribute
 
-- MIT for software  
-- CC BY 4.0 for docs/hardware  
+We welcome **replicators** who follow safety protocols.  
+To contribute:  
+
+1. Fork this repo.  
+2. Upload your raw session logs (`.csv`) + SHA256 hash.  
+3. Include short video (30–90s) of hardware + E-STOP test.  
+4. Submit via pull request or contact through the verified replicator channel.  
+
+Replications that meet safety + provenance requirements will be listed as **Verified Builds**.  
+
+---
+
+## 📜 License & Disclaimer
+
+- Licensed under **GPL-3.0** — forks must preserve attribution.  
+- This is **experimental hardware**.  
+- **Not a medical device. Not FDA approved. Use at your own risk.**  
+- Participation requires informed consent.  
+
+---
+
+## 🌍 Contact & Community
+
+- **Verified Replicator Channel (Discord/Telegram):** [link placeholder]  
+- **Substack:** [link placeholder]  
+- **TikTok / Twitter:** [link placeholder]  
+
+If you build, log, or fork this project — please cite **TALOS Labs — 6DOF Immersion Starter (MVP)**.  
+This is how we go **Civilization 0 → 1** together.  
+
