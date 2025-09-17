@@ -1,0 +1,8 @@
+Part,Qty,Notes,Link
+BLDC Motor w/ Encoder,1,40 RPM capable,https://example.com
+Motor Driver,1,Current-rated for motor torque,https://example.com
+24V Power Supply,1,Rated for driver + motor,https://example.com
+Microcontroller,1,Arduino/STM32/Teensy,https://example.com
+Emergency Stop Switch,1,Normally-closed,https://example.com
+Bearings + Frame Stock,1 set,Rotary table build,https://example.com
+VR Headset,1,Quest/Index/etc.,https://example.com

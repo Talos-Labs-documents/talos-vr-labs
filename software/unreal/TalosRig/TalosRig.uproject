@@ -1,0 +1,13 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.3",
+  "Category": "",
+  "Description": "TalosRig minimal UDP listener for telemetry.",
+  "Modules": [
+    {
+      "Name": "TalosRig",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

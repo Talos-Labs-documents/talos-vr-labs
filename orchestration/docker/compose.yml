@@ -1,0 +1,16 @@
+services:
+  bridge:
+    image: python:3.11-slim
+    working_dir: /app
+    command: bash -lc "pip install -r software/bridge/requirements.txt && python software/bridge/bridge.py"
+    volumes:
+      - ..:/app
+    environment:
+      - OSC_PORT=${OSC_PORT}
+      - SERIAL_PORT=${SERIAL_PORT}
+      - BAUD=${BAUD}
+      - MAX_RPM=${MAX_RPM}
+    # For Linux, you may need to add device access to the serial port:
+    # devices:
+    #   - "/dev/ttyACM0:/dev/ttyACM0"
+    # On Windows/Mac, prefer running bridge locally (outside container) if serial pass-through is tricky.
