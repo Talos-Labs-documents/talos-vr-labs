@@ -1,0 +1,5 @@
+timestamp,session_id,participant_id,event,rpm,target_duration_s,elapsed_s,hr_bpm,hrv_rmssd,spo2,bp_sys,bp_dia,mood_0_10,nausea_0_10,dissociation_0_10,notes
+2025-09-17T18:30:00Z,001,Brandon,baseline_start,0,120,0,72,45,98,120,80,6,0,0,Baseline start
+2025-09-17T18:30:05Z,001,Brandon,exposure_start,37,120,5,75,50,98,118,79,6,1,0,Started rotation
+2025-09-17T18:32:05Z,001,Brandon,exposure_stop,37,120,125,90,60,97,122,81,7,2,1,Stopped exposure
+2025-09-17T18:42:05Z,001,Brandon,post_10min,0,0,0,70,48,99,118,78,7,0,0,10 min post session
