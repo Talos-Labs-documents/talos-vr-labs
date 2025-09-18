@@ -91,3 +91,12 @@ Replications that meet safety + provenance requirements will be listed as **Veri
 If you build, log, or fork this project — please cite **TALOS Labs — 6DOF Immersion Starter (MVP)**.  
 This is how we go **Civilization 0 → 1** together.  
 
+## Archival Proof
+
+![Archival Proof Badge](archival_proof_badge.png)
+
+This release has been permanently preserved on the Internet Archive.  
+🔗 [View the archive entry](https://archive.org/details/talos_labs_release_2025_09_18_with_hash)  
+
+SHA256 fingerprint of README.txt:  
+`796161b585890c3a845dcba608a8cb2e71ac340ab3ad04b6043c10f525ecc537`
